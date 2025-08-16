@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarav Tea Stall - Authentic Tea & Snacks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+        }
+        .tea-steam {
+            animation: steam 3s ease-in-out infinite;
+        }
+        @keyframes steam {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-10px) rotate(2deg); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-orange-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="text-2xl">☕</div>
+                    <span class="font-bold text-gray-800">Aarav Tea Stall</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">Home</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">Gallery</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">Pricing</a>
+                    <a href="#menu" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">Menu</a>
+                    <a href="#contact" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">Contact</a>
+                </div>
+                <button onclick="showOrderForm()" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition duration-300">
+                    Order Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="home" class="hero-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="text-4xl">☕</div>
+                    <div>
+                        <h1 class="text-3xl font-bold">Aarav Tea Stall</h1>
+                        <p class="text-orange-200">Authentic Tea & Fresh Snacks</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-lg font-semibold">Owner: Avinash Ji</p>
+                    <p class="text-orange-200">📞 99999*****</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Location Banner -->
+    <section class="bg-orange-600 text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg">📍 Located beside Darbhanga College of Engineering, near Mabbi Chowk</p>
+        </div>
+    </section>
+
+    <!-- Tea Gallery -->
+    <section id="gallery" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Our Tea Stall Gallery</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Tea Stall Images -->
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <svg viewBox="0 0 400 300" class="w-full h-48 object-cover">
+                        <defs>
+                            <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#87CEEB"/>
+                                <stop offset="100%" style="stop-color:#E0F6FF"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Sky background -->
+                        <rect width="400" height="300" fill="url(#sky)"/>
+                        <!-- Tea stall structure -->
+                        <rect x="50" y="150" width="300" height="120" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+                        <polygon points="40,150 200,80 360,150" fill="#DC143C"/>
+                        <!-- Windows -->
+                        <rect x="80" y="180" width="40" height="40" fill="#87CEEB" stroke="#654321" stroke-width="2"/>
+                        <rect x="280" y="180" width="40" height="40" fill="#87CEEB" stroke="#654321" stroke-width="2"/>
+                        <!-- Door -->
+                        <rect x="180" y="190" width="40" height="80" fill="#654321"/>
+                        <!-- Sign -->
+                        <rect x="120" y="120" width="160" height="30" fill="#FFD700" stroke="#FF8C00" stroke-width="2"/>
+                        <text x="200" y="140" text-anchor="middle" fill="#8B4513" font-size="14" font-weight="bold">AARAV TEA STALL</text>
+                        <!-- Steam from chimney -->
+                        <circle cx="320" cy="100" r="8" fill="#F0F8FF" opacity="0.7"/>
+                        <circle cx="325" cy="85" r="6" fill="#F0F8FF" opacity="0.5"/>
+                        <circle cx="330" cy="70" r="4" fill="#F0F8FF" opacity="0.3"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
+                        <p class="text-white font-semibold p-4">Our Beautiful Stall</p>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <svg viewBox="0 0 400 300" class="w-full h-48 object-cover">
+                        <!-- Warm kitchen background -->
+                        <rect width="400" height="300" fill="#FFF8DC"/>
+                        <!-- Counter -->
+                        <rect x="0" y="200" width="400" height="100" fill="#8B4513"/>
+                        <!-- Tea kettle -->
+                        <ellipse cx="150" cy="180" rx="40" ry="25" fill="#C0C0C0"/>
+                        <rect x="130" y="155" width="40" height="25" fill="#C0C0C0"/>
+                        <path d="M190 170 Q210 160 210 180 Q210 200 190 190" fill="none" stroke="#C0C0C0" stroke-width="3"/>
+                        <!-- Steam -->
+                        <path d="M150 155 Q155 140 150 125 Q145 110 150 95" fill="none" stroke="#F0F8FF" stroke-width="3" opacity="0.7"/>
+                        <path d="M160 155 Q165 140 160 125 Q155 110 160 95" fill="none" stroke="#F0F8FF" stroke-width="3" opacity="0.5"/>
+                        <!-- Tea cups -->
+                        <ellipse cx="250" cy="185" rx="15" ry="10" fill="#8B4513"/>
+                        <ellipse cx="280" cy="185" rx="15" ry="10" fill="#8B4513"/>
+                        <ellipse cx="310" cy="185" rx="15" ry="10" fill="#8B4513"/>
+                        <!-- Tea liquid -->
+                        <ellipse cx="250" cy="185" rx="12" ry="8" fill="#D2691E"/>
+                        <ellipse cx="280" cy="185" rx="12" ry="8" fill="#D2691E"/>
+                        <ellipse cx="310" cy="185" rx="12" ry="8" fill="#D2691E"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
+                        <p class="text-white font-semibold p-4">Fresh Tea Brewing</p>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <svg viewBox="0 0 400 300" class="w-full h-48 object-cover">
+                        <!-- Kitchen background -->
+                        <rect width="400" height="300" fill="#FFFACD"/>
+                        <!-- Cooking area -->
+                        <rect x="50" y="150" width="300" height="150" fill="#8B4513"/>
+                        <!-- Stove -->
+                        <circle cx="150" cy="200" r="30" fill="#2F4F4F"/>
+                        <circle cx="250" cy="200" r="30" fill="#2F4F4F"/>
+                        <!-- Pans -->
+                        <ellipse cx="150" cy="200" rx="25" ry="15" fill="#696969"/>
+                        <ellipse cx="250" cy="200" rx="25" ry="15" fill="#696969"/>
+                        <!-- Food items (pakoras) -->
+                        <circle cx="145" cy="200" r="4" fill="#DAA520"/>
+                        <circle cx="155" cy="195" r="4" fill="#DAA520"/>
+                        <circle cx="150" cy="205" r="4" fill="#DAA520"/>
+                        <!-- Momos -->
+                        <path d="M245 195 Q250 190 255 195 Q250 200 245 195" fill="#F5DEB3"/>
+                        <path d="M245 205 Q250 200 255 205 Q250 210 245 205" fill="#F5DEB3"/>
+                        <!-- Steam -->
+                        <path d="M150 185 Q155 170 150 155" fill="none" stroke="#F0F8FF" stroke-width="2" opacity="0.6"/>
+                        <path d="M250 185 Q255 170 250 155" fill="none" stroke="#F0F8FF" stroke-width="2" opacity="0.6"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
+                        <p class="text-white font-semibold p-4">Hot Snacks Cooking</p>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <svg viewBox="0 0 400 300" class="w-full h-48 object-cover">
+                        <!-- Background -->
+                        <rect width="400" height="300" fill="#F0E68C"/>
+                        <!-- Person (Avinash Ji) -->
+                        <circle cx="200" cy="120" r="25" fill="#FDBCB4"/>
+                        <!-- Hair -->
+                        <path d="M175 105 Q200 95 225 105 Q225 115 200 120 Q175 115 175 105" fill="#2F4F4F"/>
+                        <!-- Body -->
+                        <rect x="180" y="145" width="40" height="60" fill="#4169E1"/>
+                        <!-- Arms -->
+                        <rect x="160" y="155" width="20" height="8" fill="#FDBCB4"/>
+                        <rect x="220" y="155" width="20" height="8" fill="#FDBCB4"/>
+                        <!-- Hands holding tea cup -->
+                        <circle cx="245" cy="159" r="5" fill="#FDBCB4"/>
+                        <ellipse cx="255" cy="159" rx="8" ry="5" fill="#8B4513"/>
+                        <!-- Smile -->
+                        <path d="M190 125 Q200 135 210 125" fill="none" stroke="#000" stroke-width="2"/>
+                        <!-- Eyes -->
+                        <circle cx="195" cy="115" r="2" fill="#000"/>
+                        <circle cx="205" cy="115" r="2" fill="#000"/>
+                        <!-- Apron -->
+                        <rect x="185" y="150" width="30" height="40" fill="#FFFFFF" opacity="0.8"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
+                        <p class="text-white font-semibold p-4">Avinash Ji Serving</p>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <svg viewBox="0 0 400 300" class="w-full h-48 object-cover">
+                        <!-- College background -->
+                        <rect width="400" height="300" fill="#E6E6FA"/>
+                        <!-- College building silhouette -->
+                        <rect x="50" y="100" width="300" height="100" fill="#708090"/>
+                        <polygon points="40,100 200,50 360,100" fill="#2F4F4F"/>
+                        <!-- Students -->
+                        <circle cx="150" cy="220" r="15" fill="#FDBCB4"/>
+                        <rect x="140" y="235" width="20" height="30" fill="#FF6347"/>
+                        <circle cx="200" cy="220" r="15" fill="#FDBCB4"/>
+                        <rect x="190" y="235" width="20" height="30" fill="#32CD32"/>
+                        <circle cx="250" cy="220" r="15" fill="#FDBCB4"/>
+                        <rect x="240" y="235" width="20" height="30" fill="#4169E1"/>
+                        <!-- Books -->
+                        <rect x="145" y="210" width="8" height="12" fill="#8B4513"/>
+                        <rect x="195" y="210" width="8" height="12" fill="#8B4513"/>
+                        <!-- Tea cups in hands -->
+                        <ellipse cx="160" cy="225" rx="5" ry="3" fill="#8B4513"/>
+                        <ellipse cx="210" cy="225" rx="5" ry="3" fill="#8B4513"/>
+                        <ellipse cx="260" cy="225" rx="5" ry="3" fill="#8B4513"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
+                        <p class="text-white font-semibold p-4">Student Favorite Spot</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-12 bg-orange-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Tea Pricing</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- College Students -->
+                <div class="bg-white rounded-lg shadow-lg p-8 text-center border-4 border-green-400">
+                    <div class="text-5xl mb-4">🎓</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">College Students</h3>
+                    <div class="text-4xl font-bold text-green-600 mb-4">₹10</div>
+                    <p class="text-gray-600">Per Cup</p>
+                    <div class="mt-6 bg-green-100 rounded-lg p-4">
+                        <p class="text-green-800 font-semibold">Special Student Rate!</p>
+                    </div>
+                </div>
+                
+                <!-- Tourists -->
+                <div class="bg-white rounded-lg shadow-lg p-8 text-center border-4 border-blue-400">
+                    <div class="text-5xl mb-4">🧳</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Tourists & Others</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-4">₹12</div>
+                    <p class="text-gray-600">Per Cup</p>
+                    <div class="mt-6 bg-blue-100 rounded-lg p-4">
+                        <p class="text-blue-800 font-semibold">Premium Quality Tea</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monthly Service -->
+    <section class="py-12 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">Monthly Tea Service</h2>
+            <div class="bg-white bg-opacity-20 rounded-lg p-8 max-w-2xl mx-auto backdrop-blur-sm">
+                <div class="text-6xl mb-4">📅</div>
+                <h3 class="text-2xl font-bold mb-4">Special Monthly Package</h3>
+                <div class="text-5xl font-bold mb-4">₹300</div>
+                <div class="text-xl mb-6">
+                    <p>✅ 37 Cups of Tea</p>
+                    <p>✅ Valid for 32 Days</p>
+                    <p>✅ Save Money & Time</p>
+                </div>
+                <button onclick="alert('Contact Avinash Ji at 99999***** to subscribe to monthly service!')" 
+                        class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Subscribe Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Snacks Menu -->
+    <section id="menu" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Delicious Snacks Menu</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="bg-orange-100 rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
+                    <div class="text-4xl mb-3">🥟</div>
+                    <h3 class="font-bold text-gray-800">Momo</h3>
+                </div>
+                <div class="bg-yellow-100 rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
+                    <div class="text-4xl mb-3">🍛</div>
+                    <h3 class="font-bold text-gray-800">Chowmein</h3>
+                </div>
+                <div class="bg-green-100 rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
+                    <div class="text-4xl mb-3">🧀</div>
+                    <h3 class="font-bold text-gray-800">Paneer Pakora</h3>
+                </div>
+                <div class="bg-red-100 rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
+                    <div class="text-4xl mb-3">🥔</div>
+                    <h3 class="font-bold text-gray-800">Aalu Pakora</h3>
+                </div>
+                <div class="bg-purple-100 rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
+                    <div class="text-4xl mb-3">🧅</div>
+                    <h3 class="font-bold text-gray-800">Payaj Pakora</h3>
+                </div>
+                <div class="bg-pink-100 rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
+                    <div class="text-4xl mb-3">🍽️</div>
+                    <h3 class="font-bold text-gray-800">And Many More!</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Order Section -->
+    <section class="py-12 bg-gradient-to-r from-green-500 to-blue-500 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Order Online</h2>
+            <p class="text-xl mb-8">Get your favorite tea and snacks delivered!</p>
+            <button onclick="showOrderForm()" 
+                    class="bg-white text-green-600 font-bold py-4 px-8 rounded-full text-xl hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                🛒 Place Your Order
+            </button>
+        </div>
+    </section>
+
+    <!-- Order Form Modal -->
+    <div id="orderModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">Place Your Order</h3>
+                <button onclick="hideOrderForm()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <form id="orderForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2">Your Name</label>
+                    <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-orange-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2">Phone Number</label>
+                    <input type="tel" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-orange-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2">Select Items</label>
+                    <select multiple class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-orange-500 h-32">
+                        <option value="tea">Tea (₹10/₹12)</option>
+                        <option value="momo">Momo</option>
+                        <option value="chowmein">Chowmein</option>
+                        <option value="paneer-pakora">Paneer Pakora</option>
+                        <option value="aalu-pakora">Aalu Pakora</option>
+                        <option value="payaj-pakora">Payaj Pakora</option>
+                    </select>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-bold mb-2">Special Instructions</label>
+                    <textarea class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-orange-500" rows="3"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition duration-300">
+                    Submit Order
+                </button>
+            </form>
+            <div class="mt-4 text-center text-sm text-gray-600">
+                <p>📞 Or call directly: 99999*****</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold">Aarav Tea Stall</h3>
+                <p class="text-gray-400">Serving the best tea since years</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <h4 class="font-bold mb-2">Contact</h4>
+                    <p>Owner: Avinash Ji</p>
+                    <p>📞 99999*****</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-2">Location</h4>
+                    <p>Beside Darbhanga College of Engineering</p>
+                    <p>Near Mabbi Chowk</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-2">Hours</h4>
+                    <p>Open Daily</p>
+                    <p>Fresh Tea All Day</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-4 border-t border-gray-700">
+                <p>&copy; 2024 Aarav Tea Stall. Made with ❤️ for tea lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showOrderForm() {
+            document.getElementById('orderModal').classList.remove('hidden');
+            document.getElementById('orderModal').classList.add('flex');
+        }
+
+        function hideOrderForm() {
+            document.getElementById('orderModal').classList.add('hidden');
+            document.getElementById('orderModal').classList.remove('flex');
+        }
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your order! Avinash Ji will contact you shortly at 99999***** to confirm your order and delivery details.');
+            hideOrderForm();
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('orderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideOrderForm();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96feb94513dde084',t:'MTc1NTMyNDE1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
