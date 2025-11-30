@@ -1,104 +1,110 @@
-import { Terminal, Github, Linkedin, Mail, MapPin } from 'lucide-react';
-
-export function Home() {
-  return (
-    <div className="space-y-8 animate-fadeIn">
-      {/* Hero Section */}
-      <section className="border-4 border-green-400 bg-green-400/5 p-8 retro-glow">
-        <div className="flex items-start gap-4 mb-6">
-          <Terminal className="size-8 text-green-400 mt-1 flex-shrink-0" />
-          <div>
-            <h2 className="retro-text mb-2">{'>'} Welcome to my terminal_</h2>
-            <div className="space-y-2 text-green-400/80">
-              <p className="retro-text">$ whoami</p>
-              <p className="retro-text pl-4">Sonu - Full Stack Developer</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="pl-12 space-y-4">
-          <p className="text-green-400/90 retro-text">
-            Building digital experiences one pixel at a time. Passionate about creating 
-            innovative solutions and exploring new technologies in the ever-evolving 
-            world of software development.
-          </p>
-          
-          <div className="flex items-center gap-2 text-green-400/70 retro-text">
-            <MapPin className="size-4" />
-            <span>Loading location...</span>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section className="border-4 border-green-400 bg-green-400/5 p-8">
-        <h2 className="retro-text mb-6 flex items-center gap-2">
-          <span className="text-green-400">&gt;</span> Skills & Tech Stack_
-        </h2>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            { category: 'Frontend', items: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js'] },
-            { category: 'Backend', items: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB'] },
-            { category: 'Tools', items: ['Git', 'Docker', 'VS Code', 'Linux'] },
-          ].map((skillGroup) => (
-            <div key={skillGroup.category} className="border-2 border-green-400 p-4 bg-black">
-              <h3 className="retro-text mb-3 text-green-400">// {skillGroup.category}</h3>
-              <ul className="space-y-2">
-                {skillGroup.items.map((item) => (
-                  <li key={item} className="retro-text text-green-400/80 flex items-center gap-2">
-                    <span className="text-green-400">▸</span> {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Connect Section */}
-      <section className="border-4 border-green-400 bg-green-400/5 p-8">
-        <h2 className="retro-text mb-6 flex items-center gap-2">
-          <span className="text-green-400">&gt;</span> Connect with me_
-        </h2>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {[
-            { icon: Github, label: 'GitHub', href: 'https://github.com' },
-            { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
-            { icon: Mail, label: 'Email', href: 'mailto:hello@thesonu.me' },
-            { icon: Terminal, label: 'Blog', href: '#notes' },
-          ].map((link) => {
-            const Icon = link.icon;
-            return (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-4 border-green-400 bg-black p-4 hover:bg-green-400 hover:text-black transition-all group retro-glow-hover"
-              >
-                <div className="flex items-center gap-3">
-                  <Icon className="size-6" />
-                  <span className="retro-text">{link.label}</span>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ASCII Art */}
-      <section className="border-4 border-green-400 bg-black p-6">
-        <pre className="retro-text text-xs text-green-400/60 overflow-x-auto">
-{`
-  ╔═══════════════════════════════════╗
-  ║  SONU.DEV - PERSONAL TERMINAL     ║
-  ║  Status: Online  |  Ready: True   ║
-  ╚═══════════════════════════════════╝
-`}
-        </pre>
-      </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sonu | Intro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --fg: #00ff9c; --bg: #000000; --muted: #0f0f0f; }
+    html, body {
+      height: 100%; margin: 0; background: var(--bg);
+      color: var(--fg); font-family: Consolas, Menlo, Monaco, monospace;
+    }
+    .container {
+      display: flex; align-items: center; justify-content: center;
+      height: 100%; padding: 24px;
+    }
+    .terminal {
+      width: min(800px, 90vw); background: #050505;
+      border: 1px solid #0a0a0a; box-shadow: 0 0 24px rgba(0,255,156,0.08);
+      padding: 24px; line-height: 1.6; letter-spacing: 0.5px;
+    }
+    .prompt { color: #7cffd1; }
+    .cursor {
+      display: inline-block; width: 10px; margin-left: 6px; background: var(--fg);
+      animation: blink 1s steps(1) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .muted { color: #2affb7; opacity: 0.4; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="terminal" aria-live="polite">
+      <div id="output" class="output">
+        <span class="prompt">>_</span> <span id="line"></span><span class="cursor"></span>
+      </div>
+      <div id="final" style="margin-top:16px; display:none;" class="muted"></div>
     </div>
-  );
-}
+  </div>
+
+  <script>
+    // Config
+    const finalText = "hii i am sonu.";
+    const glitchDurationMs = 1800;     // how long to show hacker-random typing
+    const glitchSpeedMs = 22;          // speed of random characters
+    const typeSpeedMs   = 55;          // speed of real typewriter
+    const charset = "!@#$%^&*()_+[]{}|;:,.<>?/\\-=~`ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    const lineEl  = document.getElementById("line");
+    const finalEl = document.getElementById("final");
+
+    // Phase 1: hacker-style random characters
+    function glitchType(text, duration, speed) {
+      return new Promise(resolve => {
+        const start = performance.now();
+        let idx = 0;
+        let buffer = "";
+
+        const step = () => {
+          const elapsed = performance.now() - start;
+          if (elapsed >= duration) return resolve();
+
+          // Randomly decide: advance real index or add a random char
+          const advanceReal = Math.random() < 0.35;
+          if (advanceReal && idx < text.length) {
+            buffer = text.slice(0, idx) + randomBlock(3);
+            idx++;
+          } else {
+            buffer = text.slice(0, Math.min(idx, text.length)) + randomBlock(8);
+          }
+
+          lineEl.textContent = buffer;
+          setTimeout(() => requestAnimationFrame(step), speed);
+        };
+        step();
+      });
+    }
+
+    // Phase 2: clean typewriter of finalText
+    function typeWriter(text, speed) {
+      return new Promise(resolve => {
+        let i = 0;
+        const tick = () => {
+          if (i > text.length) return resolve();
+          lineEl.textContent = text.slice(0, i);
+          i++;
+          setTimeout(tick, speed);
+        };
+        tick();
+      });
+    }
+
+    function randomBlock(len) {
+      let s = "";
+      for (let i = 0; i < len; i++) s += charset[Math.floor(Math.random() * charset.length)];
+      return s;
+    }
+
+    async function run() {
+      await glitchType(finalText, glitchDurationMs, glitchSpeedMs);
+      await typeWriter(finalText, typeSpeedMs);
+      finalEl.textContent = "// welcome";
+      finalEl.style.display = "block";
+    }
+
+    // Start after a short delay for cinematic effect
+    setTimeout(run, 500);
+  </script>
+</body>
+</html>
